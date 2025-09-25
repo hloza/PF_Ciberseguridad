@@ -30,6 +30,9 @@ if (!isset($_SESSION['usuario_autenticado'])) {
             <a href="?pagina=buscar" class="<?php echo ($pagina == 'buscar') ? 'activo' : ''; ?>">
                 🔍 Buscar
             </a>
+            <a href="?pagina=backup" class="<?php echo ($pagina == 'backup') ? 'activo' : ''; ?>">
+                🛡️ Backup
+            </a>
         </nav>
     </div>
     

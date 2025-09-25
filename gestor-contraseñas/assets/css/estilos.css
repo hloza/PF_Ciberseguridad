@@ -1012,3 +1012,347 @@ mark {
     color: #e74c3c;
 }
 
+/* ==================== ESTILOS MEJORADOS V2.0 ==================== */
+
+/* Medidor de fortaleza mejorado */
+.medidor-fortaleza {
+    margin: 10px 0;
+}
+
+.barra-fortaleza {
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progreso-fortaleza {
+    height: 100%;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.texto-fortaleza {
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Notificaciones mejoradas */
+.notificacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 10000;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.notificacion.notif-exito {
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.95), rgba(32, 134, 56, 0.95));
+}
+
+.notificacion.notif-error {
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.95), rgba(176, 42, 55, 0.95));
+}
+
+.notificacion .notif-icono {
+    font-size: 1.2em;
+}
+
+.notificacion .notif-mensaje {
+    flex: 1;
+}
+
+.notificacion .notif-cerrar {
+    cursor: pointer;
+    opacity: 0.8;
+    padding: 0 4px;
+}
+
+.notificacion .notif-cerrar:hover {
+    opacity: 1;
+}
+
+/* Tarjetas del sistema de backup */
+.seccion-backup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .seccion-backup {
+        grid-template-columns: 1fr;
+    }
+}
+
+.estadisticas-seguridad {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+}
+
+.stat-numero {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.stat-fuerte { border-color: #28a745; }
+.stat-fuerte .stat-numero { color: #28a745; }
+
+.stat-regular { border-color: #ffc107; }
+.stat-regular .stat-numero { color: #ffc107; }
+
+.stat-debil { border-color: #dc3545; }
+.stat-debil .stat-numero { color: #dc3545; }
+
+.barra-seguridad {
+    margin: 15px 0;
+}
+
+.barra-progreso {
+    width: 100%;
+    height: 20px;
+    background: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progreso-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #dc3545, #ffc107, #28a745);
+    transition: width 0.5s ease;
+}
+
+.recomendaciones-seguridad {
+    margin-top: 15px;
+    padding: 15px;
+    background: #fff3cd;
+    border-radius: 5px;
+    border: 1px solid #ffeaa7;
+}
+
+.consejos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.consejo {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.consejo-icono {
+    font-size: 2em;
+}
+
+.input-password-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-password-group input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.boton-toggle {
+    padding: 8px 12px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.boton-toggle:hover {
+    background: #5a6268;
+}
+
+/* Animaciones avanzadas */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Tooltips personalizados */
+.tooltip-custom {
+    animation: fadeIn 0.2s ease-out;
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 10001;
+    white-space: nowrap;
+}
+
+/* Generador de contraseñas */
+.generador-contraseñas {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.opciones-generador {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.opcion-generador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.opcion-generador label {
+    font-size: 0.9em;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+/* Modo oscuro mejorado */
+.tema-oscuro {
+    background-color: #1a1a1a;
+    color: #e9ecef;
+}
+
+.tema-oscuro .contenedor {
+    background-color: #2d2d2d;
+    border-color: #495057;
+}
+
+.tema-oscuro input, 
+.tema-oscuro textarea, 
+.tema-oscuro select {
+    background-color: #495057;
+    color: #e9ecef;
+    border-color: #6c757d;
+}
+
+.tema-oscuro .tarjeta {
+    background-color: #343a40;
+    border-color: #495057;
+}
+
+/* Responsive mejorado */
+@media (max-width: 768px) {
+    .notificacion {
+        min-width: 280px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .estadisticas-seguridad {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .opciones-generador {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Efectos visuales adicionales */
+.efecto-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mejoras finales */
+.cabecera-seccion {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cabecera-seccion h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.cabecera-seccion p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+}
+
+.acciones-navegacion {
+    margin-top: 30px;
+    text-align: center;
+}
+

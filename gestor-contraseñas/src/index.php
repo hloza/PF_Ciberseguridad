@@ -55,6 +55,9 @@ if (in_array($pagina, $paginasProtegidas) && !isset($_SESSION['usuario_autentica
             case 'buscar':
                 include 'vistas/buscar_contraseñas.php';
                 break;
+            case 'backup':
+                include 'vistas/backup_seguridad.php';
+                break;
             default:
                 echo "<h2>Pagina no encontrada</h2>";
                 echo "<p>La pagina solicitada no existe.</p>";

@@ -26,6 +26,13 @@ ini_set('display_errors', 1);
 
 // Constantes de la aplicacion
 define('APP_NAME', 'Gestor de Contraseñas');
-define('APP_VERSION', '1.0.0');
+define('APP_VERSION', '2.0.0');
+define('DESARROLLADOR', 'Estudiante Maestria Ciberseguridad');
+
+// Configuración de seguridad adicional
+define('PASSWORD_MIN_LENGTH', 8);
+define('SESSION_TIMEOUT', 1800); // 30 minutos
+define('MAX_LOGIN_ATTEMPTS', 5);
+define('BACKUP_KEY_SUFFIX', 'backup_key_2025');
 
 ?>
