@@ -26,6 +26,13 @@ if (in_array($pagina, $paginasProtegidas) && !isset($_SESSION['usuario_autentica
     <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body>
+    <?php 
+    // Incluir cabecera si esta autenticado y no es login
+    if (isset($_SESSION['usuario_autenticado']) && $pagina !== 'login') {
+        include 'includes/cabecera.php';
+    }
+    ?>
+    
     <div class="container">
         <?php
         // Incluir la vista correspondiente
@@ -42,12 +49,25 @@ if (in_array($pagina, $paginasProtegidas) && !isset($_SESSION['usuario_autentica
             case 'listar':
                 include 'vistas/listar_contraseñas.php';
                 break;
+            case 'editar':
+                include 'vistas/editar_contraseña.php';
+                break;
+            case 'buscar':
+                include 'vistas/buscar_contraseñas.php';
+                break;
             default:
                 echo "<h2>Pagina no encontrada</h2>";
+                echo "<p>La pagina solicitada no existe.</p>";
+                echo "<a href='?pagina=panel' class='btn-primary'>Ir al Panel Principal</a>";
                 break;
         }
         ?>
     </div>
+    
+    <?php 
+    // Incluir pie de página
+    include 'includes/pie_pagina.php';
+    ?>
     
     <script src="assets/js/funciones.js"></script>
 </body>

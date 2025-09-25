@@ -15,6 +15,29 @@ if ($resultado) {
     $tipoMensaje = $resultado['exito'] ? 'exito' : 'error';
 }
 
+// Mensajes desde URL (ej: despues de editar)
+if (isset($_GET['mensaje'])) {
+    switch($_GET['mensaje']) {
+        case 'editada':
+            $mensaje = 'Contraseña actualizada correctamente';
+            $tipoMensaje = 'exito';
+            break;
+        case 'eliminada':
+            $mensaje = 'Contraseña eliminada correctamente';
+            $tipoMensaje = 'exito';
+            break;
+    }
+}
+
+if (isset($_GET['error'])) {
+    switch($_GET['error']) {
+        case 'no_encontrada':
+            $mensaje = 'La contraseña solicitada no fue encontrada';
+            $tipoMensaje = 'error';
+            break;
+    }
+}
+
 // Obtener termino de busqueda
 $terminoBusqueda = trim($_GET['buscar'] ?? '');
 

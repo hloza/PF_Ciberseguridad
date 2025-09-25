@@ -35,6 +35,7 @@ class Contraseña {
     public function getUsuario() { return $this->usuario; }
     public function getNotas() { return $this->notas; }
     public function getFechaCreacion() { return $this->fecha_creacion; }
+    public function getFechaModificacion() { return $this->fecha_modificacion; }
     
     // Setters
     public function setSitio($sitio) { $this->sitio = $sitio; }
