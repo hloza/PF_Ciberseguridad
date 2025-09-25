@@ -4,11 +4,15 @@
  */
 
 require_once 'utilidades/Autenticacion.php';
+require_once 'controladores/ControladorContraseñas.php';
 
 // Procesar logout
 if (isset($_GET['logout'])) {
     Autenticacion::cerrarSesion();
 }
+
+// Obtener estadisticas
+$estadisticas = ControladorContraseñas::obtenerEstadisticas();
 
 ?>
 
@@ -39,15 +43,54 @@ if (isset($_GET['logout'])) {
     </div>
     
     <div class="stats-panel">
-        <h3>Estadisticas</h3>
-        <!-- TODO: mostrar estadisticas reales -->
-        <div class="stat-item">
-            <span class="stat-number">0</span>
-            <span class="stat-label">Contraseñas guardadas</span>
+        <h3>Estadisticas del Gestor</h3>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number"><?php echo $estadisticas['total_contraseñas']; ?></span>
+                <span class="stat-label">Contraseñas guardadas</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number"><?php echo $estadisticas['sitios_unicos']; ?></span>
+                <span class="stat-label">Sitios diferentes</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">
+                    <?php 
+                    if ($estadisticas['total_contraseñas'] > 0) {
+                        echo "100%";
+                    } else {
+                        echo "N/A";
+                    }
+                    ?>
+                </span>
+                <span class="stat-label">Nivel de seguridad</span>
+            </div>
         </div>
-        <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Nivel de seguridad</span>
+        
+        <?php if ($estadisticas['ultima_agregada']): ?>
+            <div class="info-adicional">
+                <p><strong>Última contraseña agregada:</strong> 
+                   <?php echo date('d/m/Y H:i', strtotime($estadisticas['ultima_agregada'])); ?>
+                </p>
+            </div>
+        <?php endif; ?>
+        
+        <?php if ($estadisticas['total_contraseñas'] == 0): ?>
+            <div class="info-inicial">
+                <p>🎉 ¡Bienvenido! Aún no tienes contraseñas guardadas.</p>
+                <p>Comienza <a href="?pagina=agregar" style="color: #3498db;">agregando tu primera contraseña</a></p>
+            </div>
+        <?php endif; ?>
+    </div>
+    
+    <div class="acciones-rapidas">
+        <h3>Acciones Rapidas</h3>
+        <div class="botones-rapidos">
+            <a href="?pagina=agregar" class="btn-accion">+ Nueva Contraseña</a>
+            <?php if ($estadisticas['total_contraseñas'] > 0): ?>
+                <a href="?pagina=listar" class="btn-accion">📋 Ver Todas</a>
+                <a href="#" onclick="alert('Funcionalidad de backup pendiente')" class="btn-accion">💾 Backup</a>
+            <?php endif; ?>
         </div>
     </div>
 </div>
